@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
+gem 'haml-rails'
+gem 'rake', '=0.8.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,4 +35,10 @@ end
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
+  gem 'database_cleaner'
+end
+
+group :development do
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
