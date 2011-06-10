@@ -10,3 +10,6 @@ Feature: Creating blog posts
 		And I fill in "Blog" with "Some text"
 		And I press "Create Post"
 		Then I should see "Post has been created."
+		And I should be on the post page for "Interesting post"
+		And I should see "Interesting post"
+

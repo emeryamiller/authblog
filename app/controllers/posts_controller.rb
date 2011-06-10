@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    puts params
     @post = Post.new(params[:post])
     @post.save
     flash[:notice] = "Post has been created."
@@ -21,7 +22,10 @@ class PostsController < ApplicationController
 
   private
   def grab_post
-    @post = Post.find_by_title(params[:id])
-    @post = Post.find(params[:id]) unless @post
+    if params[:id].numeric?
+      @post = Post.find(params[:id])
+    else
+      @post = Post.find_by_title!(params[:id])
+    end
   end
 end

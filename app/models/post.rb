@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-  attr_accessor :title, :blog
+  attr_accessible :title, :blog
 end
