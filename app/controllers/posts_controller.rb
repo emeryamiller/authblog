@@ -12,9 +12,13 @@ class PostsController < ApplicationController
   def create
     puts params
     @post = Post.new(params[:post])
-    @post.save
-    flash[:notice] = "Post has been created."
-    redirect_to @post
+    if @post.save
+      flash[:notice] = "Post has been created."
+      redirect_to @post
+    else
+      flash[:alert] = "Post has not been created."
+      render action:"new"
+    end
   end
 
   def show
