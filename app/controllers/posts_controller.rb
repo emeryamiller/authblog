@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :grab_post, :only => [:show, :edit, :update, :delete]
   
   def index
-    
+    @posts = Post.all
   end
 
   def new
