@@ -1,2 +1,4 @@
-%h2= @post.title
-= debug @post
+- draft = @post.draft ? " Draft":""
+%h2= @post.title + draft
+%p
+  = @post.blog

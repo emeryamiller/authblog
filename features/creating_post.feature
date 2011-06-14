@@ -14,9 +14,26 @@ Feature: Creating blog posts
 		Then I should see "Post has been created."
 		And I should be on the post page for "Interesting post"
 		And I should see "Interesting post"
+		And I should see "Draft"
 
-	Scenario: Creating a post without a title
+	Scenario: Creating a published post without a title
+		And I uncheck "Draft"
 		And I press "Create Post"
 		Then I should see "Post has not been created."
 		And I should see "Title can't be blank"
+
+	Scenario: Creating a published post without some content
+		And I uncheck "Draft"
+		And I fill in "Title" with "Another post"
+		And I press "Create Post"
+		Then I should see "Post has not been created."
+		And I should see "Blog can't be blank"
+
+	Scenario: Creating a published post 
+		And I uncheck "Draft"
+		And I fill in "Title" with "Another post"
+		And I fill in "Blog" with "Some content"
+		And I press "Create Post"
+		Then I should see "Post has been created."
+		And I should not see "Draft"
 
