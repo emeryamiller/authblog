@@ -1,5 +1,7 @@
 Weblog40::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   root :to => "posts#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

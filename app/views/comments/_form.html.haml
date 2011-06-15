@@ -1,0 +1,11 @@
+= form_for [@post, @comment] do |f|
+  = f.error_messages
+  %p
+    = f.label :nickname
+    = f.text_field :nickname
+  %p
+    = f.label :comment
+    %br
+    = f.text_area :comment
+
+  = f.submit
