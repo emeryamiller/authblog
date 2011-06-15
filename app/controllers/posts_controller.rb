@@ -51,5 +51,9 @@ class PostsController < ApplicationController
     else
       @post = Post.find_by_title!(params[:id])
     end
+
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The post you were looking for could not be found."
+    redirect_to posts_path
   end
 end
