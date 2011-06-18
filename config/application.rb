@@ -42,5 +42,7 @@ module Weblog40
     config.generators do |g|
       g.test_framework :rspec
     end
+
+    config.action_mailer.default_url_options = { :host => "localhost:3000"}
   end
 end

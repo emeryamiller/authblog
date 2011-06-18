@@ -1,9 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails'
 gem 'haml-rails'
-gem 'rake', '=0.8.7'
+gem 'rake'
 gem 'dynamic_form'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

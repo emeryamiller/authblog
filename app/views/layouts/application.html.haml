@@ -6,6 +6,8 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
+    %nav
+      = link_to "Sign up", new_user_registration_path
     - flash.each do |key, value|
       %div.flash{:id => "#{key}"} 
         = value
