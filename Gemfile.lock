@@ -150,12 +150,12 @@ DEPENDENCIES
   database_cleaner
   devise
   dynamic_form
-  email_spec
+  email_spec (< 1.2)
   factory_girl
   haml-rails
   hpricot
   rails
   rake
-  rspec-rails (~> 2.3)
+  rspec-rails
   ruby_parser
   sqlite3-ruby

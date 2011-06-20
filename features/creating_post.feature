@@ -1,10 +1,14 @@
 Feature: Creating blog posts
 	In order to create a blog post
-	As a user
+	As a blog owner
 	I want to create them easily
 
 	Background:
-		Given I am on the homepage
+		Given there are the following users:
+			|email | password | admin |
+			|admin@posts.com| password | true |
+		And I am signed in as them
+		And I am on the homepage
 		When I follow "New Post"
 
 	Scenario: Creating a post
