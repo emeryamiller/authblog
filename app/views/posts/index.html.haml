@@ -1,6 +1,7 @@
 %h2 Posts
 
-= link_to 'New Post', new_post_path
+= admins_only do
+  = link_to 'New Post', new_post_path
 
 %ul
   - @posts.each do |post|
