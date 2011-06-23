@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe PostsController do
-  let(:user) do
-    user = Factory(:user)
-    user.confirm!
-    user
-  end
+  let(:user) { create_user }
 
   let(:blog_post) { Factory(:post)}
 
