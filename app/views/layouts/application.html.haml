@@ -13,6 +13,9 @@
       - else
         = "Signed in as #{current_user.email}"
 
+      = admins_only do
+        = link_to "Admin", admin_root_path
+
     - flash.each do |key, value|
       %div.flash{:id => "#{key}"} 
         = value
