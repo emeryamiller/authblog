@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_filter :authorize_admin, :except => [:index, :show]
-  before_filter :grab_post, :only => [:show, :edit, :update, :delete]
+  before_filter :grab_post, :only => [:show, :edit, :update, :destroy]
   
   def index
-    @posts = Post.all
+    @posts = Post.readable_by(current_user).all
   end
 
   def new
@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    puts params
     @post = Post.new(params[:post])
     if @post.save
       flash[:notice] = "Post has been created."
@@ -39,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "Post has been deleted."
     redirect_to posts_path
@@ -48,9 +46,9 @@ class PostsController < ApplicationController
   private
   def grab_post
     if params[:id].numeric?
-      @post = Post.find(params[:id])
+      @post = Post.readable_by(current_user).find(params[:id])
     else
-      @post = Post.find_by_title!(params[:id])
+      @post = Post.readable_by(current_user).find_by_title!(params[:id])
     end
 
   rescue ActiveRecord::RecordNotFound

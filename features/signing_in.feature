@@ -5,9 +5,9 @@ Feature: Signing in
 
 	Background:
 		Given there are the following users:
-			|email | password | unconfirmed |
-			| user@posts.com | password | true |
-			| user2@posts.com| password | false |
+			| email           | password | unconfirmed |
+			| user@posts.com  | password | true        |
+			| user2@posts.com | password | false       |
 
 	Scenario: Signing in via confirmation
 		And "user@posts.com" opens the email with subject "Confirmation instructions"

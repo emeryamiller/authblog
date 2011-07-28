@@ -1,0 +1,14 @@
+= form_for [:admin, @group] do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  - if @users
+    - @users.each do |user|
+      = fields_for user do |fld|
+        = fld.check_box :email
+        = fld.label :email, user.email
+        %br
+
+  = f.submit

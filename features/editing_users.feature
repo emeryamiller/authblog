@@ -5,9 +5,9 @@ Feature: Editing users
 
 	Background:
 		Given there are the following users:
-			| email			| password | admin|
-			| admin@posts.com| password| true |
-			| user@posts.com| password | false|
+			| email           | password | admin |
+			| admin@posts.com | password | true  |
+			| user@posts.com  | password | false |
 		And I am signed in as "admin@posts.com"
 		Given I am on the homepage
 		When I follow "Admin"

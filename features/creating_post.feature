@@ -5,8 +5,8 @@ Feature: Creating blog posts
 
 	Background:
 		Given there are the following users:
-			|email | password | admin |
-			|admin@posts.com| password | true |
+			| email           | password | admin |
+			| admin@posts.com | password | true  |
 		And I am signed in as them
 		And I am on the homepage
 		When I follow "New Post"

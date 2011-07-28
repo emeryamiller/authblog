@@ -5,9 +5,9 @@ Feature: Hidden Links
 
 	Background:
 		Given there are the following users:
-			| email 	| password | admin |
-			| user@posts.com | password | false |
-			| admin@posts.com | password | true |
+			| email           | password | admin |
+			| user@posts.com  | password | false |
+			| admin@posts.com | password | true  |
 		And there is a post called "I am good"
 		Given I am on the homepage
 

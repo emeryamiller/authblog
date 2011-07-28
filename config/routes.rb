@@ -8,6 +8,7 @@ Weblog40::Application.routes.draw do
   namespace :admin do
 	root :to => "base#index"
     resources :users
+    resources :groups
   end
   root :to => "posts#index"
   # The priority is based upon order of creation:
