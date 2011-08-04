@@ -10,5 +10,12 @@
     = f.label :blog
     %br
     = f.text_area :blog
+  %p
+    = "Assign to groups"
+    %ul
+      - @groups.each do |group|
+        %li
+          = check_box_tag "group[group_id][]", group.id, @post.groups.include?(group), {id:"group_#{group.id}"}
+          = label_tag "group_#{group.id}", group.name
 
   = f.submit

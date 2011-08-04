@@ -1,8 +1,8 @@
 Given /^there are the following groups:$/ do |table|
   table.hashes.each do |attr|
-    @user = User.find_by_email(attr.delete("member"))
+    @users = User.find_by_email(attr.delete("members").split(/,\s?/))
     @group = Group.create!(attr)
-    @group.users << @user
+    @group.users << @users
     @group.save!
   end
 end

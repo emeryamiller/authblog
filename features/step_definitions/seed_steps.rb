@@ -8,13 +8,13 @@ end
 
 Given /^there are the following posts:$/ do |table|
   table.hashes.each do |attr|
-    group_name = attr.delete("group")
+    group_names = attr.delete("group").split(/,\s?/)
     draft = Boolean(attr.delete("draft"))
     @post = Post.create!(attr.merge!(blog:"Sample text"))
     @post.draft = draft
-    if group_name != ""
-      group = Group.find_by_name(group_name)
-      @post.groups << group  
+    unless group_names == []
+      groups = Group.find_all_by_name(group_names)
+      @post.groups << groups
     end
     @post.save!
   end

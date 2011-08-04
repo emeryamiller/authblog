@@ -1,5 +1,9 @@
 = link_to "New Group", new_admin_group_path
-%ul
+%ul.groups
   - if @groups
     - @groups.each do |group|
-      %li= link_to group.name, [:admin, group]
+      %li 
+        = link_to group.name, [:admin, group]
+        %ul.users
+          - group.users.each do |user|
+            %li= user.email

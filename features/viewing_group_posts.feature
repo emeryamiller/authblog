@@ -12,7 +12,7 @@ Feature: Viewing group posts
             | admin@posts.com | true  |
 
         Given there are the following groups:
-            | name | member          |
+            | name | members         |
             | A    | usera@posts.com |
             | B    | userb@posts.com |
 
@@ -20,6 +20,7 @@ Feature: Viewing group posts
             | title         | group | draft |
             | For group A   | A     | false |
             | For group B   | B     | false |
+            | For groups AB | B, A  | false |
             | For everyone  |       | false |
             | In draft mode |       | true  |
 
@@ -28,6 +29,7 @@ Feature: Viewing group posts
 	Scenario: Listing should show group A users their posts
         And I am logged in as "usera@posts.com"
 		Then I should see "For group A"
+		Then I should see "For groups AB"
 		Then I should not see "For group B"
 		Then I should not see "In draft mode"
         Then I should see "For everyone"
@@ -36,6 +38,7 @@ Feature: Viewing group posts
         And I am logged in as "userb@posts.com"
 		Then I should not see "For group A"
 		Then I should see "For group B"
+		Then I should see "For groups AB"
 		Then I should not see "In draft mode"
         Then I should see "For everyone"
 
@@ -43,12 +46,14 @@ Feature: Viewing group posts
         And I am logged in as "admin@posts.com"
 		Then I should see "For group A"
 		Then I should see "For group B"
+		Then I should see "For groups AB"
 		Then I should see "In draft mode"
         Then I should see "For everyone"
 
 	Scenario: Listing shouldn't show public users posts for group 
 		Then I should not see "For group A"
 		Then I should not see "For group B"
+		Then I should not see "For groups AB"
 		Then I should not see "In draft mode"
         Then I should see "For everyone"
 

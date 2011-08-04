@@ -6,9 +6,7 @@
 
   - if @users
     - @users.each do |user|
-      = fields_for user do |fld|
-        = fld.check_box :email
-        = fld.label :email, user.email
-        %br
+      = check_box_tag "user[user_id][]", user.id, @group.users.include?(user), {:id=>"user_#{user.id}"}
+      = label_tag "user_#{user.id}", user.email
 
   = f.submit
