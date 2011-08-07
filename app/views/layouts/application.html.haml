@@ -7,11 +7,15 @@
     = csrf_meta_tag
   %body
     %nav
+      = link_to "Posts", posts_path
       - if !user_signed_in?
         = link_to "Sign up", new_user_registration_path
         = link_to "Sign in", new_user_session_path
+        = link_to "Sign in with Google", user_omniauth_authorize_path(:google)
+        = link_to "Sign in with Yahoo", user_omniauth_authorize_path(:open_id, openid_url:'http://yahoo.com')
       - else
         = "Signed in as #{current_user.email}"
+        = link_to "Sign out", destroy_user_session_path
 
       = admins_only do
         = link_to "Admin", admin_root_path

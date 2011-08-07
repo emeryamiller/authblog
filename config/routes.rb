@@ -1,5 +1,7 @@
 Weblog40::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks:"omniauth_callbacks" } do
+    get '/users/auth/:provider' => "omniauth_callbacks#passthru"
+  end
 
   resources :posts do
     resources :comments
@@ -10,6 +12,8 @@ Weblog40::Application.routes.draw do
     resources :users
     resources :groups
   end
+
+
   root :to => "posts#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.

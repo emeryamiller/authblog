@@ -5,6 +5,8 @@ gem 'haml-rails'
 gem 'rake'
 gem 'dynamic_form'
 gem 'devise'
+gem 'oa-oauth', :require => "omniauth/oauth"
+gem 'oa-openid', :require => "omniauth/openid"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

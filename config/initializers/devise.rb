@@ -139,4 +139,16 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
+
+  #Twitter config
+  #config.omniauth :twitter, "APP_ID", "APP_SECRET"
+
+  #Facebook config
+  config.omniauth :facebook, "APP_ID", "APP_SECRET"
+
+  #OpenID config
+  require 'openid/store/filesystem'
+  config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp')
+  config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp'), name:'google', identifier:'https://www.google.com/accounts/o8/id'
+  
 end
