@@ -12,6 +12,7 @@ Given /^there are the following users:$/ do |table|
   end
 end
 
+
 Given /^I am (?:signed|logged) in as an admin$/ do 
   @user = User.create!({email:"admin@posts.com", password:"password", password_confirmation:"password" })
   @user.admin = true
@@ -35,3 +36,8 @@ Given /^I am (?:signed|logged) in as them$/ do
   Then I should see "Signed in successfully."
   })
 end
+
+Given /^user's "([^\"]*)" account is invalid$/ do |account|
+ OmniAuth.config.mock_auth[account.to_sym] = :invalid_credentials 
+end
+

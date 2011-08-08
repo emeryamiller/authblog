@@ -5,11 +5,11 @@ Feature: Signing in
 
 	Background:
 		Given there are the following users:
-			| email           | password | unconfirmed |
-			| user@posts.com  | password | true        |
-			| user2@posts.com | password | false       |
-            | user@gmail.com  | password | false       |
-            | user@yahoo.com  | password | false       |
+			| email           | unconfirmed |
+			| user@posts.com  | true        |
+			| user2@posts.com | false       |
+            | user@gmail.com  | false       |
+            | user@yahoo.com  | false       |
 
 	Scenario: Signing in via confirmation
 		And "user@posts.com" opens the email with subject "Confirmation instructions"
@@ -40,3 +40,11 @@ Feature: Signing in
         Then I should see "Successfully authorized from Yahoo account."
         Then I should see "Signed in as user@yahoo.com"
 	
+    Scenario: Signing in via Google invalid id
+        Given user's "google" account is invalid
+        And I am on the homepage
+        When I follow "Sign in with Google"
+        Then I should see "Could not authorize you from Google because" 
+        Then I should see "Invalid credentials"
+        Then I should see "Sign in"
+        
