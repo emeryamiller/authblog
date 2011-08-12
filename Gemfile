@@ -45,6 +45,7 @@ group :test do
   gem 'factory_girl'
   gem 'email_spec', '< 1.2'
   gem 'launchy'
+  gem 'spork'
 end
 
 group :development do
