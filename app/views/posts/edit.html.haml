@@ -1,2 +1,5 @@
+- content_for :header do
+  = javascript_include_tag "Markdown.Converter.js", "Markdown.Sanitizer.js", "Markdown.Editor.js"
+  
 %h2= "Edit Post - #{@post.title}"
 = render "form"

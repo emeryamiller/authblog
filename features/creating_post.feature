@@ -5,10 +5,10 @@ Feature: Creating blog posts
 
 	Background:
 		Given there are the following users:
-			| email           | password | admin |
-			| admin@posts.com | password | true  |
-			| userA@posts.com | password | true  |
-			| userB@posts.com | password | true  |
+			| email           | admin |
+			| admin@posts.com | true  |
+			| userA@posts.com | true  |
+			| userB@posts.com | true  |
 		And I am signed in as "admin@posts.com"
         Given there are the following groups:
             | name  | members         |
@@ -19,7 +19,7 @@ Feature: Creating blog posts
 
 	Scenario: Creating a post
 		And I fill in "Title" with "Interesting post"
-		And I fill in "Blog" with "Some text"
+		And I fill in blog with "Some text"
 		And I press "Create Post"
 		Then I should see "Post has been created."
 		And I should be on the post page for "Interesting post"
@@ -43,7 +43,7 @@ Feature: Creating blog posts
 	Scenario: Creating a published post 
 		And I uncheck "Draft"
 		And I fill in "Title" with "Another post"
-		And I fill in "Blog" with "Some content"
+		And I fill in blog with "Some content"
 		And I press "Create Post"
 		Then I should see "Post has been created."
         And I should see "Viewable by everyone"
@@ -52,7 +52,7 @@ Feature: Creating blog posts
     Scenario: Creating a published post with a group assigned
 		And I uncheck "Draft"
 		And I fill in "Title" with "Another post"
-		And I fill in "Blog" with "Some content"
+		And I fill in blog with "Some content"
         And I check "Alpha"
 		And I press "Create Post"
 		Then I should see "Post has been created."
@@ -62,7 +62,7 @@ Feature: Creating blog posts
     Scenario: Creating a published post with multiple groups assigned
 		And I uncheck "Draft"
 		And I fill in "Title" with "Another post"
-		And I fill in "Blog" with "Some content"
+		And I fill in blog with "Some content"
         And I check "Alpha"
         And I check "Beta"
 		And I press "Create Post"

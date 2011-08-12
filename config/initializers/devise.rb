@@ -148,7 +148,6 @@ Devise.setup do |config|
 
   #OpenID config
   require 'openid/store/filesystem'
-  config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp')
+  config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp'), name:'yahoo', identifier:'http://yahoo.com'
   config.omniauth :open_id, OpenID::Store::Filesystem.new('/tmp'), name:'google', identifier:'https://www.google.com/accounts/o8/id'
-  
 end

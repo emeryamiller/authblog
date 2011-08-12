@@ -5,11 +5,11 @@ Feature: Creating groups
 
 	Background:
 		Given there are the following users:
-			| email             | password | admin |
-			| admin@posts.com   | password | true  |
-            | family@posts.com  | password | false |
-            | family2@posts.com | password | false |
-            | family3@posts.com | password | false |
+			| email             | admin |
+			| admin@posts.com   | true  |
+            | family@posts.com  | false |
+            | family2@posts.com | false |
+            | family3@posts.com | false |
 		And I am signed in as "admin@posts.com"
         Given there are the following groups:
             | name    | members           |

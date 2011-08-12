@@ -7,6 +7,8 @@ gem 'dynamic_form'
 gem 'devise'
 gem 'oa-oauth', :require => "omniauth/oauth"
 gem 'oa-openid', :require => "omniauth/openid"
+gem 'compass', ">= 0.11.5"
+gem 'compass-960-plugin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -42,6 +44,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'email_spec', '< 1.2'
+  gem 'launchy'
 end
 
 group :development do

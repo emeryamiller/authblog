@@ -3,6 +3,8 @@ Weblog40::Application.routes.draw do
     get '/users/auth/:provider' => "omniauth_callbacks#passthru"
   end
 
+  resources :authentications
+
   resources :posts do
     resources :comments
   end

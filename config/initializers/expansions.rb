@@ -6,7 +6,11 @@ end
 
 module Kernel
   def Boolean(str)
-    return true if str =~ /true/i
-    return false
+    if str.kind_of?(String)
+      return true if str =~ /true/i
+      false
+    else
+      str
+    end
   end
 end

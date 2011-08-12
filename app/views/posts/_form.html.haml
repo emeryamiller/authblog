@@ -9,7 +9,10 @@
   %p
     = f.label :blog
     %br
-    = f.text_area :blog
+    %div#wmd-panel
+      %div#wmd-button-bar
+      = f.text_area :blog, {id:'wmd-input'}
+      %div#wmd-preview
   %p
     = "Assign to groups"
     %ul
@@ -19,3 +22,10 @@
           = label_tag "group_#{group.id}", group.name
 
   = f.submit
+
+:javascript
+  (function() {
+    var converter = Markdown.getSanitizingConverter();
+    var editor = new Markdown.Editor(converter);
+    editor.run();
+  })();

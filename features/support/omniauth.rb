@@ -1,9 +1,11 @@
-OmniAuth.config.mock_auth[:google]={"provider"=>"google",
-  "uid"=>"https://www.google.com/accounts/o8/id?id=someuniqueid",
-  "user_info"=>{"email"=>"user@gmail.com",
-    "first_name"=>"First", "last_name"=>"Last", "name"=>"First Last"}}
+def add_oa_mock(service, email, user_info={})
+  OmniAuth.config.add_mock(service.to_s.downcase, { 
+    "provider" => service.to_s, 
+    "uid" => "auniqueid_#{email}",
+    "user_info" => {"email" => email, 
+                    "name" => "First Last"}.merge(user_info) })
+end
 
-OmniAuth.config.mock_auth[:open_id]= {"provider"=>"open_id", 
-  "uid"=>"https://me.yahoo.com/a/someuniqueid",
-  "user_info"=>{"email"=>"user@yahoo.com", 
-    "name"=>"Yahoo Last", "nickname"=>"Nickname"}}
+def add_invalid_oa_mock(service)
+  OmniAuth.config.mock_auth[service.to_s.downcase.to_sym] = :invalid_credentials
+end

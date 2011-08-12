@@ -5,8 +5,8 @@ Feature: Deleting posts
 
 	Scenario: Deleting a post
 		Given there are the following users:
-			| email           | password | admin |
-			| admin@posts.com | password | true  |
+			| email           | admin |
+			| admin@posts.com | true  |
 		And I am signed in as them
 		Given there is a post called "A bad post"
 		And I am on the homepage

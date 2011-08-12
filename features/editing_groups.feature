@@ -5,10 +5,10 @@ Feature: Editing groups
 
 	Background:
 		Given there are the following users:
-			| email            | password | admin |
-			| admin@posts.com  | password | true  |
-			| userA@posts.com  | password | false |
-			| userB@posts.com  | password | false |
+			| email            | admin |
+			| admin@posts.com  | true  |
+			| userA@posts.com  | false |
+			| userB@posts.com  | false |
 		And I am signed in as "admin@posts.com"
         Given there are the following groups:
             | name  | members                          |

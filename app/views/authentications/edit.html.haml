@@ -1,0 +1,23 @@
+%h1 Account 
+
+Signed in as: 
+%name= current_user.email
+- services = current_user.authentications.map(&:provider)
+
+%h2 You have signed in with these services: 
+%ul#services
+  - services.each do |service|
+    %li=service.titleize if service
+
+%h2 Add another service to sign in with:
+%ul#additional_services
+  %li= link_to "Google", user_omniauth_authorize_path(:google)
+  %li= link_to "Yahoo", user_omniauth_authorize_path(:yahoo)
+
+%footer
+  - unless current_user
+    Don't use these services?
+    =link_to "Log in", new_user_session_path
+    or 
+    =link_to "Sign up", new_user_registration_path
+    with a us.
