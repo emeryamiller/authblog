@@ -36,6 +36,8 @@ gem 'sqlite3'
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'rspec-rails'
+  gem 'watchr'
+  gem 'ruby-growl'
 end
 
 group :test do
@@ -45,10 +47,11 @@ group :test do
   gem 'factory_girl'
   gem 'email_spec', '< 1.2'
   gem 'launchy'
-  gem 'spork'
+  gem 'spork', '~> 0.9.0.rc'
 end
 
 group :development do
   gem 'hpricot'
   gem 'ruby_parser'
 end
+
