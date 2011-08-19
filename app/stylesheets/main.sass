@@ -1,0 +1,150 @@
+@import compass
+@import 960/grid
+
+body
+  +background-image(linear-gradient(#EEE, #CCC))
+  height: 1080px
+
+nav
+  ul
+    +horizontal-list
+    > li
+      margin-left: 1.5em 
+      > a
+        +link_colors(#CCC, #CCC, #CCC, #CCC, #CCC)
+        +hover_link
+
+#container
+  +grid_system(16)
+  +clearfix
+  +grid-children
+  font-size: 1em
+  padding: 0em 1em 1em 1em
+
+  > nav
+    +grid(16, 16)
+    +single-box-shadow
+    background-color: #2D2D2D
+    color: #CCC
+    margin: 0
+
+
+    li.identifier
+      color: #888
+      padding-right: 1em
+      float: right
+
+#notifications
+  +grid-prefix(4,16)
+  +grid(8, 16)
+  display: none
+
+
+header
+  +grid(16, 16)
+  
+  margin: 0
+  padding: 0
+
+  h1
+    +grid(16, 16)
+    +background(linear-gradient(#193, #152))
+    +single-box-shadow
+    
+    margin: 0
+    text-align: center
+
+  nav
+    +grid(16, 16)
+    +background-image(linear-gradient(#888, #444))
+    +border-bottom-radius(0.5em)
+    +single-box-shadow
+    
+    margin: 0
+    margin-bottom: 1em
+    font-size: 1em
+    ul
+      > li
+        margin-left: 1.5em
+        > a
+          +link_colors(#EEE, #EEE, #EEE, #EEE, #EEE)
+
+    h2
+      display: inline-block
+      + ul
+        display:inline-block
+
+section#main
+  +grid(16, 16)
+  +single-box-shadow
+  +border-radius(0.5em)
+  margin: 0
+  padding-top: 1em
+  padding-bottom: 2em
+  background: #FFF
+  
+  h1
+    padding-left: 1em
+
+  nav#services
+    background-color: #FFF
+    padding-left: 1em
+    ul
+      > li > a > span
+        +border-radius(0.5em)
+        +background-image(linear-gradient(#CCC, #999))
+        color: #000
+        display: block
+        text-align: center
+    p
+      padding-left: 1em
+      margin-top: 2em
+      margin-bottom: 0em
+
+  article
+    padding-left: 1em
+
+    h1
+      padding-left: 0
+
+  section#recent
+    +grid(12, 16)
+    +alpha
+    article
+      +grid(12, 16)
+
+  section#less_recent
+    +grid(4, 16)
+    +omega
+    height: 400px
+    border: 1px dotted black
+    article
+      +grid(4, 16)
+      font-size: 1em
+
+  section#create
+    +grid(6, 16)
+    +alpha
+
+  section#preview
+    +grid(10, 16)
+    +single-box-shadow
+    +omega
+
+footer
+  +grid(16, 16)
+  +single-box-shadow
+  +border-radius(0.5em)
+  +background-image(linear-gradient(#CCC, #888))
+  margin: 0
+  padding: 0
+  margin-top: 1em
+
+  h1
+    margin: 0.25em
+    text-align: center
+    font-size: 0.8em
+
+#wmd-button-bar
+  display: none
+

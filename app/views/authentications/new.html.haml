@@ -1,14 +1,10 @@
-%h1 Sign In Options
+%h1 Sign In with:
 
-%ul
-  %li= link_to "Google", user_omniauth_authorize_path(:google)
-  %li= link_to "Yahoo", user_omniauth_authorize_path(:yahoo)
-  !!!%li= link_to "OpenID", user_omniauth_authorize_path(:open_id)
-
-%footer
-  - unless current_user
-    Don't use these services?
-    =link_to "Log in", new_user_session_path
-    or 
-    =link_to "Sign up", new_user_registration_path
-    with a us.
+%nav#services
+  %ul
+    %li= link_to_service "Google", user_omniauth_authorize_path(:google)
+    %li= link_to_service "Yahoo", user_omniauth_authorize_path(:yahoo)
+    !!!%li= link_to "OpenID", user_omniauth_authorize_path(:open_id)
+  %p Don't use these services? Sign in with us:
+  %ul
+    %li= link_to_service "Custom", new_user_session_path

@@ -9,6 +9,9 @@ gem 'oa-oauth', :require => "omniauth/oauth"
 gem 'oa-openid', :require => "omniauth/openid"
 gem 'compass', ">= 0.11.5"
 gem 'compass-960-plugin'
+gem 'redcarpet'
+gem 'coderay'
+gem 'nokogiri'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,7 +30,6 @@ gem 'sqlite3'
 
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 

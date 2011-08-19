@@ -1,27 +1,31 @@
-= form_for(@post) do |f|
-  = f.error_messages
-  %p
-    = f.label :title
-    = f.text_field :title
-  %p
-    = f.check_box :draft
-    = f.label :draft
-  %p
-    = f.label :blog
-    %br
-    %div#wmd-panel
-      %div#wmd-button-bar
-      = f.text_area :blog, {id:'wmd-input'}
-      %div#wmd-preview
-  %p
-    = "Assign to groups"
-    %ul
-      - @groups.each do |group|
-        %li
-          = check_box_tag "group[group_id][]", group.id, @post.groups.include?(group), {id:"group_#{group.id}"}
-          = label_tag "group_#{group.id}", group.name
+%section#create
+  = form_for(@post) do |f|
+    = f.error_messages
+    %p
+      = f.label :title
+      = f.text_field :title
+    %p
+      = f.check_box :draft
+      = f.label :draft
+    %p
+      = f.label :blog
+      %br
+      %div#wmd-panel
+        %div#wmd-button-bar
+        = f.text_area :blog, {id:'wmd-input'}
+    %p
+      = "Assign to groups"
+      %ul
+        - @groups.each do |group|
+          %li
+            = check_box_tag "group[group_id][]", group.id, @post.groups.include?(group), {id:"group_#{group.id}"}
+            = label_tag "group_#{group.id}", group.name
 
-  = f.submit
+    = f.submit
+
+%section#preview
+  %div#wmd-preview
+
 
 :javascript
   (function() {

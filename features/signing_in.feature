@@ -22,7 +22,7 @@ Feature: Signing in
 	Scenario: Signing in via a form
 		And I am on the homepage
 		When I follow "Sign in"
-        When I follow "Log in"
+        When I follow "Custom"
 		And I fill in "Email" with "user2@posts.com"
 		And I fill in "Password" with "password"
 		And I press "Sign in"

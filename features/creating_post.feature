@@ -17,15 +17,17 @@ Feature: Creating blog posts
 		And I am on the homepage
 		When I follow "New Post"
 
-	Scenario: Creating a post
+	Scenario: Creating a post and ensure markdown interpreted
 		And I fill in "Title" with "Interesting post"
-		And I fill in blog with "Some text"
+		And I fill in blog with "##Some text"
 		And I press "Create Post"
 		Then I should see "Post has been created."
 		And I should be on the post page for "Interesting post"
 		And I should see "Interesting post"
 		And I should see "Draft"
         And I should see "Viewable by everyone"
+        And I should see "Some text"
+        And I should not see "##"
 
 	Scenario: Creating a published post without a title
 		And I uncheck "Draft"

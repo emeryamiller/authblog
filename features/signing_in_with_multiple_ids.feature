@@ -14,14 +14,14 @@ Feature: Signing in with multiple ids
 	Scenario: Signing in via a form first
 		And I am on the homepage
 		When I follow "Sign in"
-        When I follow "Log in"
+        When I follow "Custom"
 		And I fill in "Email" with "user@posts.com"
 		And I fill in "Password" with "password"
 		And I press "Sign in"
 		Then I should see "Signed in successfully."
         Then I should not see "Sign in"
         Then I follow "Account"
-        Then I should not see "Log in"
+        Then I should not see "Custom"
         Given I will sign in as "user2@gmail.com" through the "Google" service
         When I follow "Google"
         Then I should see "Successfully authorized from Google account."
@@ -48,11 +48,11 @@ Feature: Signing in with multiple ids
     Scenario: Signing in via external provider first
         And I am on the homepage
 		When I follow "Sign in"
-        Then I should see "Log in"
+        Then I should see "Custom"
         When I follow "Google"
         Then I should see "Successfully authorized from Google account."
         Then I should see "Signed in as user@gmail.com"
-        Then I should not see "Log in"
+        Then I should not see "Custom"
         Then I follow "Account"
         Then I should see the service "Google"
         Then I should not see a link to the "Google" service
