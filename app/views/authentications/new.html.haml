@@ -5,6 +5,4 @@
     %li= link_to_service "Google", user_omniauth_authorize_path(:google)
     %li= link_to_service "Yahoo", user_omniauth_authorize_path(:yahoo)
     !!!%li= link_to "OpenID", user_omniauth_authorize_path(:open_id)
-  %p Don't use these services? Sign in with us:
-  %ul
-    %li= link_to_service "Custom", new_user_session_path
+  %p= link_to "I don't use any of these services", new_user_session_path

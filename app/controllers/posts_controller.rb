@@ -5,6 +5,11 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.readable_by(current_user).all
+    if params[:q]
+      render "posts/index_listing"
+    else
+      render "posts/index"
+    end
   end
 
   def new

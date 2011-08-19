@@ -28,9 +28,6 @@ class User < ActiveRecord::Base
 
   def self.find_for_openid_oauth(access_token, signed_in_resource=nil)
     authentication = Authentication.find_or_create_by_uid_and_provider(access_token["uid"], access_token["provider"].downcase)
-    puts OmniAuth.config.mock_auth.inspect
-    puts access_token.inspect
-    puts authentication.inspect
     if user = signed_in_resource
       user.authentications << authentication
       user.save!

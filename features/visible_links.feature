@@ -4,17 +4,17 @@ Feature: Certain links should be visible
 
     Scenario: A link to posts should be visible to everyone
         Given I am on the homepage
-        Then I should see "Posts"
+        Then I should see "Archives"
 
     Scenario: A link to posts should be visible to admins from the admins section
         Given I am logged in as an admin
         Given I am on the homepage
-        Then I should see "Posts"
+        Then I should see "Archives"
         When I follow "Admin"
-        Then I should see "Posts"
+        Then I should see "Archives"
         When I follow "Users"
-        Then I should see "Posts"
+        Then I should see "Archives"
         When I follow "Admin"
         When I follow "Groups"
-        Then I should see "Posts"
+        Then I should see "Archives"
     

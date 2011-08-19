@@ -35,10 +35,20 @@ nav
       float: right
 
 #notifications
-  +grid-prefix(4,16)
+  +grid-prefix(4, 16)
   +grid(8, 16)
-  display: none
+  +grid-suffix(4, 16)
+  +background(linear-gradient(#163, #143))
+  +single-box-shadow
+  +border-radius(0.5em)
+  margin: 0
+  text-align: center
+  
+  #notice
+    color: yellow
 
+  #alert
+    color: red
 
 header
   +grid(16, 16)
@@ -79,16 +89,16 @@ section#main
   +single-box-shadow
   +border-radius(0.5em)
   margin: 0
-  padding-top: 1em
-  padding-bottom: 2em
-  background: #FFF
-  
-  h1
-    padding-left: 1em
 
+  section#content
+    +border-radius(0.5em)
+    padding-left: 1em
+    padding-top: 1em
+    padding-bottom: 2em
+    background: #FFF
+  
   nav#services
     background-color: #FFF
-    padding-left: 1em
     ul
       > li > a > span
         +border-radius(0.5em)
@@ -97,15 +107,11 @@ section#main
         display: block
         text-align: center
     p
-      padding-left: 1em
       margin-top: 2em
       margin-bottom: 0em
 
   article
     padding-left: 1em
-
-    h1
-      padding-left: 0
 
   section#recent
     +grid(12, 16)

@@ -442,10 +442,36 @@ nav ul > li > a:hover {
   margin-left: 10px;
   margin-right: 10px;
   width: 460px;
-  display: none;
+  padding-right: 240px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #116633), color-stop(100%, #114433));
+  background: -webkit-linear-gradient(#116633, #114433);
+  background: -moz-linear-gradient(#116633, #114433);
+  background: -o-linear-gradient(#116633, #114433);
+  background: -ms-linear-gradient(#116633, #114433);
+  background: linear-gradient(#116633, #114433);
+  -moz-box-shadow: 0px 0px 5px #333333;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -o-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin: 0;
+  text-align: center;
+}
+/* line 47, ../../app/stylesheets/main.sass */
+#notifications #notice {
+  color: yellow;
+}
+/* line 50, ../../app/stylesheets/main.sass */
+#notifications #alert {
+  color: red;
 }
 
-/* line 43, ../../app/stylesheets/main.sass */
+/* line 53, ../../app/stylesheets/main.sass */
 header {
   display: inline;
   float: left;
@@ -455,7 +481,7 @@ header {
   margin: 0;
   padding: 0;
 }
-/* line 49, ../../app/stylesheets/main.sass */
+/* line 59, ../../app/stylesheets/main.sass */
 header h1 {
   display: inline;
   float: left;
@@ -475,7 +501,7 @@ header h1 {
   margin: 0;
   text-align: center;
 }
-/* line 57, ../../app/stylesheets/main.sass */
+/* line 67, ../../app/stylesheets/main.sass */
 header nav {
   display: inline;
   float: left;
@@ -508,11 +534,11 @@ header nav {
   margin-bottom: 1em;
   font-size: 1em;
 }
-/* line 67, ../../app/stylesheets/main.sass */
+/* line 77, ../../app/stylesheets/main.sass */
 header nav ul > li {
   margin-left: 1.5em;
 }
-/* line 69, ../../app/stylesheets/main.sass */
+/* line 79, ../../app/stylesheets/main.sass */
 header nav ul > li > a {
   color: #eeeeee;
 }
@@ -532,12 +558,12 @@ header nav ul > li > a:hover {
 header nav ul > li > a:active {
   color: #eeeeee;
 }
-/* line 72, ../../app/stylesheets/main.sass */
+/* line 82, ../../app/stylesheets/main.sass */
 header nav h2 {
   display: inline-block;
 }
 
-/* line 77, ../../app/stylesheets/main.sass */
+/* line 87, ../../app/stylesheets/main.sass */
 section#main {
   display: inline;
   float: left;
@@ -555,20 +581,25 @@ section#main {
   -khtml-border-radius: 0.5em;
   border-radius: 0.5em;
   margin: 0;
+}
+/* line 93, ../../app/stylesheets/main.sass */
+section#main section#content {
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  border-radius: 0.5em;
+  padding-left: 1em;
   padding-top: 1em;
   padding-bottom: 2em;
   background: white;
 }
-/* line 86, ../../app/stylesheets/main.sass */
-section#main h1 {
-  padding-left: 1em;
-}
-/* line 89, ../../app/stylesheets/main.sass */
+/* line 100, ../../app/stylesheets/main.sass */
 section#main nav#services {
   background-color: white;
-  padding-left: 1em;
 }
-/* line 93, ../../app/stylesheets/main.sass */
+/* line 103, ../../app/stylesheets/main.sass */
 section#main nav#services ul > li > a > span {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -586,21 +617,16 @@ section#main nav#services ul > li > a > span {
   display: block;
   text-align: center;
 }
-/* line 99, ../../app/stylesheets/main.sass */
+/* line 109, ../../app/stylesheets/main.sass */
 section#main nav#services p {
-  padding-left: 1em;
   margin-top: 2em;
   margin-bottom: 0em;
 }
-/* line 104, ../../app/stylesheets/main.sass */
+/* line 113, ../../app/stylesheets/main.sass */
 section#main article {
   padding-left: 1em;
 }
-/* line 107, ../../app/stylesheets/main.sass */
-section#main article h1 {
-  padding-left: 0;
-}
-/* line 110, ../../app/stylesheets/main.sass */
+/* line 116, ../../app/stylesheets/main.sass */
 section#main section#recent {
   display: inline;
   float: left;
@@ -609,7 +635,7 @@ section#main section#recent {
   width: 700px;
   margin-left: 0;
 }
-/* line 113, ../../app/stylesheets/main.sass */
+/* line 119, ../../app/stylesheets/main.sass */
 section#main section#recent article {
   display: inline;
   float: left;
@@ -617,7 +643,7 @@ section#main section#recent article {
   margin-right: 10px;
   width: 700px;
 }
-/* line 116, ../../app/stylesheets/main.sass */
+/* line 122, ../../app/stylesheets/main.sass */
 section#main section#less_recent {
   display: inline;
   float: left;
@@ -628,7 +654,7 @@ section#main section#less_recent {
   height: 400px;
   border: 1px dotted black;
 }
-/* line 121, ../../app/stylesheets/main.sass */
+/* line 127, ../../app/stylesheets/main.sass */
 section#main section#less_recent article {
   display: inline;
   float: left;
@@ -637,7 +663,7 @@ section#main section#less_recent article {
   width: 220px;
   font-size: 1em;
 }
-/* line 125, ../../app/stylesheets/main.sass */
+/* line 131, ../../app/stylesheets/main.sass */
 section#main section#create {
   display: inline;
   float: left;
@@ -646,7 +672,7 @@ section#main section#create {
   width: 340px;
   margin-left: 0;
 }
-/* line 129, ../../app/stylesheets/main.sass */
+/* line 135, ../../app/stylesheets/main.sass */
 section#main section#preview {
   display: inline;
   float: left;
@@ -660,7 +686,7 @@ section#main section#preview {
   margin-right: 0;
 }
 
-/* line 134, ../../app/stylesheets/main.sass */
+/* line 140, ../../app/stylesheets/main.sass */
 footer {
   display: inline;
   float: left;
@@ -687,14 +713,14 @@ footer {
   padding: 0;
   margin-top: 1em;
 }
-/* line 143, ../../app/stylesheets/main.sass */
+/* line 149, ../../app/stylesheets/main.sass */
 footer h1 {
   margin: 0.25em;
   text-align: center;
   font-size: 0.8em;
 }
 
-/* line 148, ../../app/stylesheets/main.sass */
+/* line 154, ../../app/stylesheets/main.sass */
 #wmd-button-bar {
   display: none;
 }

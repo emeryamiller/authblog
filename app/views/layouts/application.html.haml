@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Weblog40
+    %title= yield :title 
     = stylesheet_link_tag :all
     = stylesheet_link_tag 'grid.css', :media => 'screen, projection'
     = stylesheet_link_tag 'text.css', :media => 'screen, projection'
@@ -15,7 +15,6 @@
       %nav
         %ul
           = admins_only do
-            %li= link_to_unless_current "Posts", posts_path
             %li= link_to_unless_current "Admin", admin_root_path
 
           - if !user_signed_in?
@@ -29,18 +28,24 @@
         %h1 Blog Title
         %nav#find
           %ul
-            %li Search
-            %li Archives
+            !!!%li
+            !!!  =form_for :posts do |f|
+            !!!    %label Search
+            !!!    = field :search
+
+            %li= link_to "Home", posts_path
+            %li= link_to_unless_current "Archives", posts_path(q:"all")
             = admins_only do
               = yield :links
 
-      #notifications
-        - flash.each do |key, value|
-          %div.flash{:id => "#{key}"} 
-            = value
-
       %section#main
-        = yield
+        #notifications
+          - flash.each do |key, value|
+            %div.flash{:id => "#{key}"} 
+              = value
+
+        %section#content
+          = yield
 
       %footer
         %h1 All rights reserved
