@@ -1,6 +1,10 @@
 = admins_only do
   = link_to 'New Post', new_post_path
 
-%ul
-  - @posts.each do |post|
-    %li= link_to post.title, post
+- @posts.group_by{|p| p.month_year}.each do |monthyear, posts|
+  %ul
+    %li=monthyear
+      =posts.each do |post|
+        %ul
+          %li= link_to post.title, post
+            %p= post.short_abstract

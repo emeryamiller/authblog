@@ -1,18 +1,39 @@
 module PostsHelper
-  def markdown(source)
-    options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode] 
-    strip_html_wrapper(highlight_code(Redcarpet.new(source, *options).to_html)).html_safe
-  end
-
-  def strip_html_wrapper(nokogiri_doc)
-    nokogiri_doc.search("//body").inner_html
-  end
-
-  def highlight_code(source)
-    doc = Nokogiri::HTML(source)
-    doc.search("//pre[@lang]").each do |pre|
-      pre.replace CodeRay.scan(pre.text.rstrip, pre[:lang]) 
+  class ColorizedCodeHTML < Redcarpet::Render::HTML
+    def block_code(code, language)
+      CodeRay.scan(code, language) 
     end
-    doc
+  end
+
+  class AbstractHTML < Redcarpet::Render::HTML
+    def header(text, header_level)
+      ""
+    end
+
+    def image(link, title, alt_text)
+      ""
+    end
+
+    def autolink(link, link_type)
+      ""
+    end
+
+    def link(link, title, alt_text)
+      ""
+    end
+  end
+
+  def abstract_markdown(source)
+    markdown_options = [:no_intra_emphasis, :fenced_code_blocks, :lax_html_blocks].each_with_object({}) { |option, h| h[option] = true }
+    render_options = [:hard_wrap].each_with_object({}) { |option, h| h[option] = true }
+    converter = Redcarpet::Markdown.new(AbstractHTML.new(render_options), markdown_options)
+    converter.render(source).html_safe
+  end
+
+  def markdown(source)
+    markdown_options = [:no_intra_emphasis, :tables, :fenced_code_blocks, :lax_html_blocks, :autolink, :strikethrough, :superscript].each_with_object({}) { |option, h| h[option] = true }
+    render_options = [:hard_wrap].each_with_object({}) { |option, h| h[option] = true }
+    converter = Redcarpet::Markdown.new(ColorizedCodeHTML.new(render_options), markdown_options)
+    converter.render(source).html_safe
   end
 end

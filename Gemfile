@@ -9,14 +9,15 @@ gem 'oa-oauth', :require => "omniauth/oauth"
 gem 'oa-openid', :require => "omniauth/openid"
 gem 'compass', ">= 0.11.5"
 gem 'compass-960-plugin'
-gem 'redcarpet'
+gem 'redcarpet', :git => "https://github.com/tanoku/redcarpet.git"
 gem 'coderay'
 gem 'nokogiri'
+gem 'sqlite3'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'

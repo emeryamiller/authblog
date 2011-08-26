@@ -17,4 +17,23 @@ class Post < ActiveRecord::Base
       joins('LEFT OUTER JOIN "groups_posts" ON "groups_posts"."post_id" = "posts"."id"').where(:draft => false, :groups_posts => {:group_id => nil})
     end
   }
+
+  def method_missing(m, *args, &block)
+    if [:day, :month, :year].include? m
+      [created_at, updated_at].max.send(m)
+    else
+      super(m, *args, &block)
+    end
+  end
+
+  def full_post
+    "# #{title}\n\n#{blog}"
+  end
+
+  def abstract
+    words = blog.scan(/\S+/)
+    sentances_found = 0
+    words.take_while { |word| keep = (sentances_found < 2); sentances_found += 1 if word =~ /\./; keep }
+    words[0...30].join(' ')
+  end
 end

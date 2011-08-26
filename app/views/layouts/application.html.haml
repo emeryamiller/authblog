@@ -39,12 +39,12 @@
               = yield :links
 
       %section#main
-        #notifications
-          - flash.each do |key, value|
-            %div.flash{:id => "#{key}"} 
-              = value
-
         %section#content
+          #notifications
+            - flash.each do |key, value|
+              %div.flash{:id => "#{key}"} 
+                = value
+          
           = yield
 
       %footer

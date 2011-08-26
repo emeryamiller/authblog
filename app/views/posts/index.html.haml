@@ -1,6 +1,25 @@
 = admins_only do
   = link_to 'New Post', new_post_path
 
-%ul
-  - @posts.each do |post|
-    %li= link_to post.title, post
+%section#full_articles
+  - @posts[0..2].try(:each) do |post|
+    %ul
+      %li
+        %date
+          %span.day= post.day
+          %span.month= post.month
+          %span.year= post.year
+        %p= link_to post.title, post
+        %p= markdown(post.full_post)
+
+%section#preview
+  - @posts[2...5].try(:each) do |post|
+    %ul
+      %li
+        %date
+          %span.day= post.day
+          %span.month= post.month
+          %span.year= post.year
+        %h1= link_to post.title, post
+        %p= markdown(post.abstract)
+        %p= link_to "read more", post
