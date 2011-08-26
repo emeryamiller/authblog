@@ -39,6 +39,8 @@ module Weblog40
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    config.assets.enabled = true
+    config.assets.precompile += %w(application.js application.css)
     config.generators do |g|
       g.test_framework :rspec
     end

@@ -1,7 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', ">= 3.1.0.rc1"
 gem 'haml-rails'
+gem 'json'
+gem 'sass'
+gem 'coffee-script'
+gem 'uglifier'
+gem 'sprockets'
+gem 'jquery-rails'
 gem 'rake'
 gem 'dynamic_form'
 gem 'devise'
